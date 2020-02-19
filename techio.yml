@@ -1,7 +1,9 @@
-title: .NET Core C# Project
+title: C# Refresh - OOP and LINQ
 plan:
 - title: Welcome
   statement: markdowns/welcome.md
+- title: Object Oriented Programming
+  statement: markdowns/oop.md
 projects:
   csharp:
     root: /csharp-project
