@@ -2,11 +2,14 @@
 
 C# is a [multi paradigm](https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages) programming language, which is used in the Microsoft .NET framework, currently (March 2020) in [version 8.0](https://docs.microsoft.com/da-dk/dotnet/csharp/language-reference/proposals/csharp-8.0/nullable-reference-types).
 
-Object Oriented Programming (OOP) is a [programming paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) which is highly used in C#.
+[Object Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) is a [programming paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) which is highly used in C#.
 
-## OOP Concepts
+For those interesed in the history behind OOP it worth looking at these sites [Alan Kays Definition Of Object Oriented](https://wiki.c2.com/?AlanKaysDefinitionOfObjectOriented) and 
+[Alan Kay and OO Programming](https://ovid.github.io/articles/alan-kay-and-oo-programming.html)
 
-OOP introduces four important concepts : Encapsulation, Inheritance, Polymorphism and Abstraction.
+## Programming concepts in OOP
+
+Especially four programming concepts are important to understand when programming using OOP : Encapsulation, Inheritance, Polymorphism and Abstraction. These concepts often goes hand in hand, and can be hard to seperate.
 
 Please read the following articles:
 
@@ -17,45 +20,47 @@ Please read the following articles:
 ### Encapsulation
 
 ?[What is the goal of encapsulation within OOP?]
--[ ] To put your code in a capsule
+-[ ] To put your code in a "capsule", to make it secure
 -[ ] To put a special focus on a specific feature in the code
--[x] To prevent access to implementation details
+-[x] To bind together data and functions that manipulate the data
+-[x] To keep the internal state of the object within the object 
 
-Detailed optional reading on [Encapsulation in C#](https://www.tutorialspoint.com/csharp/csharp_encapsulation.htm)
+Detailed optional reading on [OOP Concept for Beginners: What is Encapsulation](https://stackify.com/oop-concept-for-beginners-what-is-encapsulation/)
 
-Example of encapsulation
+Example of encapsulation written in C#. The class Counter, have the inner state counterValue which is hidden for the outside and can only be modified by the methods CountUp and CountDown.
 
 ```C# runnable
 using System;
 
-namespace RectangleApplication {
-   class Rectangle {
-      private double length;
-      private double width;
-      
-      public Rectangle(double length, double width){
-      	this.length = length;
-        this.width = width;
-      }
-       
-      private double GetArea() {
-         return length * width;
-      }
-       
-      public void Display() {
-         Console.WriteLine("Length: {0}", length);
-         Console.WriteLine("Width: {0}", width);
-         Console.WriteLine("Area: {0}", GetArea());
-      }
-   }
+public class Counter
+{
+	private int counterValue = 0;
+
+	public void CountUp()
+	{
+		counterValue++;
+	}
+
+	public void CountDown()
+	{
+		counterValue--;
+	}
+
+	public int GetCounterValue()
+	{
+		return counterValue;
+	}
+}
    
-   class ExecuteRectangle {
-      static void Main(string[] args) {
-         Rectangle r = new Rectangle(4.5, 2);
-          // You are unable to access the vaiables length and width as they are private
-          // You are unable to access GetArea() as it's private
-         r.Display();
-      }
+class ExecuteEncapsulation {
+	static void Main(string[] args) {
+        var c = new Counter();
+        Console.WriteLine(c.GetCounterValue()); //Expected 0
+        c.CountUp(); // value should now be 1
+        c.CountUp(); // value should now be 2
+        Console.WriteLine(c.GetCounterValue()); //Expected 2
+        c.CountDown(); // value should now be 1
+        Console.WriteLine(c.GetCounterValue()); //Expected 1
    }
 }
 
@@ -69,86 +74,199 @@ namespace RectangleApplication {
 -[x] To reuse code functionality 
 -[] To make sure code never dies
 
-Detailed optional reading on [Inheritance in C#](https://www.tutorialspoint.com/csharp/csharp_inheritance.htm) https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance and [How To Do Object Oriented Programming The Right Way](https://codeburst.io/how-to-do-object-oriented-programming-the-right-way-1339c1a25286) (optional)
+Detailed optional reading on [Inheritance in C#](https://www.tutorialspoint.com/csharp/csharp_inheritance.htm), [Inheritance (C# Programming Guide)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance) and [How To Do Object Oriented Programming The Right Way](https://codeburst.io/how-to-do-object-oriented-programming-the-right-way-1339c1a25286) (optional)
 
+Example of inheritance, the species dog and human is inharitancing the functionality of the mammel, and modifies the two parameters legs and specie.
 
-
-Example of inheritance 
 ```C# runnable
 using System;
 
-namespace RectangleApplication {
-   class Triangle : Rectangle {     
-      public Triangle(double length, double width): base(length, width){
-      	type = "Triangle";
-      }
-       
-      public override double GetArea() {
-         return 0.5 * Length * Width;
-      }
-       
+public class Mammel
+{
+	private int numberOfLegs = 0;
+	private string specie = string.Empty;
+
+	public Mammel(string specie, int numberOfLegs)
+	{
+		this.numberOfLegs = numberOfLegs;
+		this.specie = specie;
+	}
+
+	public int NumberOfLegs
+	{
+		get
+		{
+			return numberOfLegs;
+		}
+	}
+
+	public string Specie
+	{
+		get
+		{
+			return specie;
+		}
+	}
+}
+
+public class Dog : Mammel
+{
+	public Dog() : base("Dogs", 4)
+	{
+	}
+}
+
+public class Human : Mammel
+{
+	public Human() : base("Humans", 2)
+	{
+	}
+}
+
+class ExecuteInheritance {
+	static void Main(string[] args) {
+        var d = new Dog();
+        Console.WriteLine($"{d.Specie} has {d.NumberOfLegs} legs");
+
+        var h = new Human();
+        Console.WriteLine($"{h.Specie} has {h.NumberOfLegs} legs");
    }
+}
+
+```
+
+### Polymorphism
+
+?[What can you do with polymorphism within OOP?]
+-[x] Function overloading
+-[ ] Class overloading
+-[x] Operator overloading
+
+Detailed optional reading on [Polymorphism in C#](https://www.tutorialspoint.com/csharp/csharp_polymorphism.htm), [Polymorphism (C# Programming Guide)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism) 
+
+Example of polymorphism, the class Polymorph implents three different (polymorph) versions of the method Print. Type of input decides which of the implementaions is excecuted.
+
+```C# runnable
+using System;
+
+class Polymorph
+{
+    public void Print(int i)
+    {
+    	Console.WriteLine($"Printing int: {i}");
+    }
+
+    public void Print(double d)
+    {
+    	Console.WriteLine($"Printing double: {d}");
+    }
+
+    public void Print(string s)
+    {
+    	Console.WriteLine($"Printing string: {s}");
+    }
+}
    
-   class Rectangle {
-      protected double Length { get; private set;}
-      protected double Width { get; private set;}
-      protected string type = "Rectangle";
-      
-      public Rectangle(double length, double width){
-      	Length = length;
-        Width = width;
-      }
-       
-      public virtual double GetArea() {
-         return Length * Width;
-      }
-       
-      public void Display() {
-         Console.WriteLine($"Length {type}: {Length}");
-         Console.WriteLine($"Width {type}: {Width}");
-         Console.WriteLine($"Area {type}: {GetArea()}");
-      }
-   }
-   
-   class ExecuteRectangle {
-      static void Main(string[] args) {
-         var r = new Rectangle(4.5, 2);
-         r.Display();
-         
-         var t = new Triangle(4.5, 2);
-         t.Display();
-      }
+class RunPolymorph {
+   static void Main(string[] args) {
+      var p = new Polymorph();
+      p.Print(42);
+      p.Print(3.14159265359);
+      p.Print("I'm Polymorph");
    }
 }
 
 
 ```
 
-### Polymorphism
-
-?[What is the goal of polymorphism within OOP?]
--[ ] Putting your code in a capsule
--[ ] Putting a special focus on a specific feature in the code
--[x] Prevents access to implementation details
--[ ] Peace & Love
-
-Detailed reading on [Polymorphism in C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism) (optional)
-
-Example of polymorphism 
 
 ### Abstraction
 
 ?[What is the goal of abstraction within OOP?]
--[ ] Putting your code in a capsule
--[ ] Putting a special focus on a specific feature in the code
--[x] Prevents access to implementation details
--[ ] Peace & Love
+-[x] To only show  the essentials functionality of a class
+-[ ] To make the code hard to read and understand
+-[x] To hide away implementation details
 
-Detailed reading on [Abstration in C#](https://www.geeksforgeeks.org/c-sharp-abstraction/) (optional)
+Detailed optional reading on [Abstration in C#](https://www.geeksforgeeks.org/c-sharp-abstraction/), [Abstract modifier](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract)
 
-Example of encapsulation
+Example of abstraction, the class mammel can't be instanciated since it have the modifier *abstract*, only the class Dog and Human can be instanciated, all functionality data which is generic for mammels are hidden in the Mammel class.
+
+```C# runnable
+using System;
+
+public abstract class Mammel
+{
+	private int numberOfLegs = 0;
+	private string specie = string.Empty;
+
+	public Mammel(string specie, int numberOfLegs)
+	{
+		this.numberOfLegs = numberOfLegs;
+		this.specie = specie;
+	}
+
+	public int NumberOfLegs
+	{
+		get
+		{
+			return numberOfLegs;
+		}
+	}
+
+	public string Specie
+	{
+		get
+		{
+			return specie;
+		}
+	}
+
+	public abstract void MakeASound();
+}
+
+public class Dog : Mammel
+{
+	public Dog() : base("Dogs", 4)
+	{
+	}
+
+	public override void MakeASound()
+	{
+		Console.WriteLine("Wuf");
+	}
+}
+
+public class Human : Mammel
+{
+	public Human() : base("Humans", 2)
+	{
+	}
+
+	public override void MakeASound()
+	{
+		Console.WriteLine("Hello World");
+	}
+}
+
+class ExecuteAbstraction{
+	static void Main(string[] args) {
+        var d = new Dog();
+        Console.WriteLine($"{d.Specie} has {d.NumberOfLegs} legs");
+        Console.Write("The dog say: ");
+        d.MakeASound();
+
+        var h = new Human();
+        Console.WriteLine($"{h.Specie} has {h.NumberOfLegs} legs");
+        Console.Write("The human say: ");
+        h.MakeASound();
+   }
+}
+
+```
 
 ## OOP Elements
+
+Objects are instances of classes. In other words, an instance of a class is an object defined by that particular class. Creating a new instance, or an object, is called instantiation.
 
 **A class is a template or blueprint from which objects will be instantiated**. It’s like the mould from which objects can be created/instantiated from. A class represents a **real life concept** such as a person, an animal, a car, a house or a football.
 
@@ -176,6 +294,7 @@ Coupling and Cohesion
 
 https://sanaulla.info/2008/06/26/cohesion-and-coupling-two-oo-design-principles/
 
-## 
-
+## Object oriented thinking
+CRC cards
+http://c2.com/doc/oopsla89/paper.html
 ## 
