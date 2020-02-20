@@ -90,8 +90,8 @@ namespace RectangleApplication {
    }
    
    class Rectangle {
-      double Length {protected get; private set;}
-      double Width {protected get; private set;}
+      protected double Length { get; private set;}
+      protected double Width { get; private set;}
       protected string type = "Rectangle";
       
       public Rectangle(double length, double width){
@@ -100,13 +100,13 @@ namespace RectangleApplication {
       }
        
       public virtual double GetArea() {
-         return length * width;
+         return Length * Width;
       }
        
       public void Display() {
-         Console.WriteLine($"Length {type}: {0}", length);
-         Console.WriteLine($"Width {type}: {0}", width);
-         Console.WriteLine($"Area {type}: {0}", GetArea());
+         Console.WriteLine($"Length {type}: {Length}");
+         Console.WriteLine($"Width {type}: {Width}");
+         Console.WriteLine($"Area {type}: {GetArea()}");
       }
    }
    
