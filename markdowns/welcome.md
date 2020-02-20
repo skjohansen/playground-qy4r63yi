@@ -8,11 +8,14 @@ It's **highly recommended** that you walkthrough this playground before the clas
 
 This playground consist of the following parts:
 
-- Object Oriented Programming
+- Object Oriented Programming (OOP) with C#
+  - Basics of OOP
+  - Interfaces
+  - Attributes
+  - Repository pattern
 - Nuget
-- Lambda expressions
-- Attributes
-- Repository pattern
+- Functional programming with C#
+  - Lambda expressions
 - Reflection
 - LINQ
 - Fluent API

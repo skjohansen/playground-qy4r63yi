@@ -16,29 +16,91 @@ Please read the following articles:
 
 ### Encapsulation
 
-https://www.tutorialspoint.com/csharp/csharp_encapsulation.htm
+?[What is the goal of encapsulation within OOP?]
+-[ ] Putting your code in a capsule
+-[ ] Putting a special focus on a specific feature in the code
+-[x] Prevents access to implementation details
+
+Detailed reading on [Encapsulation in C#](https://www.tutorialspoint.com/csharp/csharp_encapsulation.htm) (optional)
 
 Example of encapsulation
+
+``` c# runnable
+using System;
+
+namespace RectangleApplication {
+   class Rectangle {
+      private double length;
+      private double width;
+      
+      public Rectangle(double length, double width){
+      	this.length = length;
+        this.width = width;
+      }
+       
+      private double GetArea() {
+         return length * width;
+      }
+       
+      public void Display() {
+         Console.WriteLine("Length: {0}", length);
+         Console.WriteLine("Width: {0}", width);
+         Console.WriteLine("Area: {0}", GetArea());
+      }
+   }
+   
+   class ExecuteRectangle {
+      static void Main(string[] args) {
+         Rectangle r = new Rectangle(4.5, 2);
+          // You are unable to access GetArea() as it's private
+         r.Display();
+      }
+   }
+}
+
+```
 
 ### Inheritance
 
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance
+?[What is the goal of inheritance within OOP?]
+-[ ] Putting your code in a capsule
+-[ ] Putting a special focus on a specific feature in the code
+-[x] Prevents access to implementation details
+-[ ] Peace & Love
 
-Example of encapsulation
+Detailed reading on [Inheritance in C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance) (optional)
+
+https://codeburst.io/how-to-do-object-oriented-programming-the-right-way-1339c1a25286
+
+Example of inheritance 
 
 ### Polymorphism
 
-https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism
+?[What is the goal of polymorphism within OOP?]
+-[ ] Putting your code in a capsule
+-[ ] Putting a special focus on a specific feature in the code
+-[x] Prevents access to implementation details
+-[ ] Peace & Love
 
-Example of encapsulation
+Detailed reading on [Polymorphism in C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism) (optional)
+
+Example of polymorphism 
 
 ### Abstraction
 
-https://www.geeksforgeeks.org/c-sharp-abstraction/
+?[What is the goal of abstraction within OOP?]
+-[ ] Putting your code in a capsule
+-[ ] Putting a special focus on a specific feature in the code
+-[x] Prevents access to implementation details
+-[ ] Peace & Love
+
+Detailed reading on [Abstration in C#](https://www.geeksforgeeks.org/c-sharp-abstraction/) (optional)
 
 Example of encapsulation
 
 ## OOP Elements
+
+https://codeburst.io/how-to-do-object-oriented-programming-the-right-way-1339c1a25286
 
 Class
 
