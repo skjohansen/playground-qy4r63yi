@@ -25,7 +25,7 @@ Detailed reading on [Encapsulation in C#](https://www.tutorialspoint.com/csharp/
 
 Example of encapsulation
 
-``` c# runnable
+```C# runnable
 using System;
 
 namespace RectangleApplication {
@@ -57,6 +57,7 @@ namespace RectangleApplication {
       }
    }
 }
+
 
 ```
 
