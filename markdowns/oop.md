@@ -83,7 +83,7 @@ namespace RectangleApplication {
       	type = "Triangle";
       }
        
-      private override double GetArea() {
+      public override double GetArea() {
          return 0.5 * length * width;
       }
        
@@ -99,7 +99,7 @@ namespace RectangleApplication {
         this.width = width;
       }
        
-      private double GetArea() {
+      public virtual double GetArea() {
          return length * width;
       }
        
