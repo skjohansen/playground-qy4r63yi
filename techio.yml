@@ -4,22 +4,22 @@ plan:
   statement: markdowns/welcome.md
 - title: Object Oriented Programming
   statement: markdowns/oop.md
-  - title: Interfaces
-    statement: markdowns/interfaces.md
-  - title: Attributes
-    statement: markdowns/attributes.md
+- title: Interfaces
+  statement: markdowns/interfaces.md
+- title: Attributes
+  statement: markdowns/attributes.md
 - title: Nuget
   statement: markdowns/nuget.md
 - title: Functional programming with C#
   statement: markdowns/functionalprogramming.md
-  - title: Lambda expressions
-    statement: markdowns/lamdaexpressions.md
+- title: Lambda expressions
+  statement: markdowns/lamdaexpressions.md
 - title: Reflection
   statement: markdowns/reflection.md
 - title: LINQ
   statement: markdowns/linq.md
-  - title: Repository pattern
-    statement: markdowns/repositorypattern.md
+- title: Repository pattern
+  statement: markdowns/repositorypattern.md
 - title: Fluent API
   statement: markdowns/fluentapi.md
 projects:
