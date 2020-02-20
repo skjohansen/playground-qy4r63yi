@@ -17,11 +17,11 @@ Please read the following articles:
 ### Encapsulation
 
 ?[What is the goal of encapsulation within OOP?]
--[ ] Putting your code in a capsule
--[ ] Putting a special focus on a specific feature in the code
--[x] Prevents access to implementation details
+-[ ] To put your code in a capsule
+-[ ] To put a special focus on a specific feature in the code
+-[x] To prevent access to implementation details
 
-Detailed reading on [Encapsulation in C#](https://www.tutorialspoint.com/csharp/csharp_encapsulation.htm) (optional)
+Detailed optional reading on [Encapsulation in C#](https://www.tutorialspoint.com/csharp/csharp_encapsulation.htm)
 
 Example of encapsulation
 
@@ -52,6 +52,7 @@ namespace RectangleApplication {
    class ExecuteRectangle {
       static void Main(string[] args) {
          Rectangle r = new Rectangle(4.5, 2);
+          // You are unable to access the vaiables length and width as they are private
           // You are unable to access GetArea() as it's private
          r.Display();
       }
@@ -64,16 +65,64 @@ namespace RectangleApplication {
 ### Inheritance
 
 ?[What is the goal of inheritance within OOP?]
--[ ] Putting your code in a capsule
--[ ] Putting a special focus on a specific feature in the code
--[x] Prevents access to implementation details
--[ ] Peace & Love
+-[ ] To use code without breaking the copyright
+-[x] To reuse code functionality 
+-[] To make sure code never dies
 
-Detailed reading on [Inheritance in C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance) (optional)
+Detailed optional reading on [Inheritance in C#](https://www.tutorialspoint.com/csharp/csharp_inheritance.htm) https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/inheritance and [How To Do Object Oriented Programming The Right Way](https://codeburst.io/how-to-do-object-oriented-programming-the-right-way-1339c1a25286) (optional)
 
-https://codeburst.io/how-to-do-object-oriented-programming-the-right-way-1339c1a25286
+
 
 Example of inheritance 
+```C# runnable
+using System;
+
+namespace RectangleApplication {
+   class Triangle : Rectangle {     
+      public Triangle(double length, double width): base(length, width){
+      	type = "Triangle";
+      }
+       
+      private override double GetArea() {
+         return 0.5 * length * width;
+      }
+       
+   }
+   
+   class Rectangle {
+      private double length;
+      private double width;
+      protected string type = "Rectangle";
+      
+      public Rectangle(double length, double width){
+      	this.length = length;
+        this.width = width;
+      }
+       
+      private double GetArea() {
+         return length * width;
+      }
+       
+      public void Display() {
+         Console.WriteLine($"Length {type}: {0}", length);
+         Console.WriteLine($"Width {type}: {0}", width);
+         Console.WriteLine($"Area {type}: {0}", GetArea());
+      }
+   }
+   
+   class ExecuteRectangle {
+      static void Main(string[] args) {
+         var r = new Rectangle(4.5, 2);
+         r.Display();
+         
+         var t = new Triangle(4.5, 2);
+         t.Display();
+      }
+   }
+}
+
+
+```
 
 ### Polymorphism
 
@@ -101,11 +150,25 @@ Example of encapsulation
 
 ## OOP Elements
 
+**A class is a template or blueprint from which objects will be instantiated**. It’s like the mould from which objects can be created/instantiated from. A class represents a **real life concept** such as a person, an animal, a car, a house or a football.
+
+
+
+A class consists of a collection of states (a.k.a. **attributes** or **properties**) and **behaviours** (a.k.a. **methods**). 
+
+An **object** is an **instance** of a **class**. The attributes of an object as stored using variables for storing data  and the behaviour/methods of an object are implemented as functions or  procedures and can be used to perform operations on the data.
+
 https://codeburst.io/how-to-do-object-oriented-programming-the-right-way-1339c1a25286
+
+https://brilliant.org/wiki/classes-oop/
 
 Class
 
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes
+
 Objects
+
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/objects
 
 ## Design principles
 
