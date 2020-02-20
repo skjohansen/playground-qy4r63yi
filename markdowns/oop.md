@@ -84,19 +84,19 @@ namespace RectangleApplication {
       }
        
       public override double GetArea() {
-         return 0.5 * length * width;
+         return 0.5 * Length * Width;
       }
        
    }
    
    class Rectangle {
-      private double length;
-      private double width;
+      double Length {protected get; private set;}
+      double Width {protected get; private set;}
       protected string type = "Rectangle";
       
       public Rectangle(double length, double width){
-      	this.length = length;
-        this.width = width;
+      	Length = length;
+        Width = width;
       }
        
       public virtual double GetArea() {
