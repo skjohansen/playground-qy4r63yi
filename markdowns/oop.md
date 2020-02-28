@@ -140,7 +140,7 @@ public class Human : Mammal
 
 class ExecuteInheritance {
 	static void Main(string[] args) {
-        var m = new Mammel();
+        var m = new Mammal();
 		Console.WriteLine($"{m.Specie} has {m.NumberOfLegs} legs");
         
         var d = new Dog();
