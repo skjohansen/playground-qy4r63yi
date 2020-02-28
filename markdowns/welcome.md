@@ -11,12 +11,12 @@ This playground consist of the following parts:
 - Object Oriented Programming (OOP) with C#
   - Interfaces
   - Attributes
-  - Repository pattern
 - Nuget
 - Functional programming with C#
   - Lambda expressions
 - Reflection
 - LINQ
+  - Repository pattern
 - Fluent API
 
 Each part will consist of links to learning material, quizzes on the learning material and code examples
