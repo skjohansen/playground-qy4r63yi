@@ -213,7 +213,7 @@ public abstract class Mammal
 	private int numberOfLegs = 0;
 	private string specie = string.Empty;
 
-	public Mammel(string specie, int numberOfLegs)
+	public Mammal(string specie, int numberOfLegs)
 	{
 		this.numberOfLegs = numberOfLegs;
 		this.specie = specie;
