@@ -380,7 +380,7 @@ class Car{
 
 I the following lecture will we look more into OOP design principles, but the there is two basic design principles of OOP which is important to look into in beforehand and that is [coupling and cohesion](https://sanaulla.info/2008/06/26/cohesion-and-coupling-two-oo-design-principles/).
 
-?[What is our goal as developers?]
+?[What is our goal as developers when developing OO code?]
 -[ ] High coupling and high cohesion
 -[ ] High coupling and low cohesion
 -[x] Low coupling and high cohesion
