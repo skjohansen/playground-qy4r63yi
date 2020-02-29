@@ -72,7 +72,7 @@ public class Human : IMammal
 }
 
 class ExecuteAbstraction{
-    void DisplayMammal(IMammal mammal)
+    static void DisplayMammal(IMammal mammal)
     {
         Console.WriteLine($"{mammal.Specie} has {mammal.NumberOfLegs} legs");
         Console.Write($"The {mammal.Specie} say: ");
