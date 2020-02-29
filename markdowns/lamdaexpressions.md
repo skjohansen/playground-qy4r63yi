@@ -2,6 +2,8 @@
 
 
 
+The way of doing functonal programming in C#
+
 https://www.codingame.com/playgrounds/213/using-c-linq---a-practical-overview/lambda-expressions
 
 Lamda expressions (an evolution of anonymous methods)

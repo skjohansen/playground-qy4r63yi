@@ -1,10 +1,14 @@
-# attributes
+# Attributes in C#
+
+Read more: [Attributes (C#)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/)
+
+Attributes can be put on classes, methods
+
+
+
+## Usage of attributes
 
 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/
-
-### Attribute
-
-An interesting property of a class. Usually in the form of a value.
 
 In C# we add attributes to a class using *[* and *]*, example:
 
@@ -16,6 +20,9 @@ class Car{
 }
 ```
 
-Read more: [Attributes (C#)](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/)
+## Custom attributes
 
-## 
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/creating-custom-attributes
+
+
+
