@@ -16,15 +16,21 @@ Interfaces is more or less the only type in [Microsoft C# naming convension](htt
 
 So when naming an interface should the name be prefixed with an *I*. Eg. an interface for a mammal would would be named IMammal.
 
+## Interface example
+
+In this example is does the interface Mammal tell us that all mammal have two properties of number of legs and the specie of the mammal, and that the mammal have the behavior of making a sound.
+
+The example is quite simplified, but a key difference between a dog and a human is the ability to speak, so the implementation of human and dog differs a bit, but they still implement to the same contract (interface). This contract is used by the DisplayMammal method to display the information on the mammal.
+
+Question to think about: What could we do if the mammal does not have any legs? Like a whale
+
 ```C# runnable
 using System;
 
 public interface IMammal
 {
 	int NumberOfLegs { get; }
-
 	string Specie { get; }
-
 	void MakeASound();
 }
 
@@ -48,6 +54,12 @@ public class Human : IMammal
 {
 	private int numberOfLegs = 2;
 	private string specie = "Humans";
+	private string quote;
+
+
+	public Human(string quote){
+		this.quote = quote;
+	}
 
 	public int NumberOfLegs => numberOfLegs;
 
@@ -55,21 +67,21 @@ public class Human : IMammal
 
 	public void MakeASound()
 	{
-		Console.WriteLine("Hello World");
+		Console.WriteLine(quote);
 	}
 }
 
 class ExecuteAbstraction{
+    void DisplayMammal(IMammal mammal)
+    {
+        Console.WriteLine($"{mammal.Specie} has {mammal.NumberOfLegs} legs");
+        Console.Write($"The {mammal.Specie} say: ");
+        mammal.MakeASound();
+    }
+    
 	static void Main(string[] args) {
-        IMammal d = new Dog();
-        Console.WriteLine($"{d.Specie} has {d.NumberOfLegs} legs");
-        Console.Write("The dog say: ");
-        d.MakeASound();
-
-        IMammal h = new Human();
-        Console.WriteLine($"{h.Specie} has {h.NumberOfLegs} legs");
-        Console.Write("The human say: ");
-        h.MakeASound();
+        DisplayMammal(new Dog());
+        DisplayMammal(new Human("The Ultimate Answer to Life, The Universe and Everything is...42!"));
    }
 }
 
