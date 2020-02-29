@@ -8,18 +8,24 @@ It's **highly recommended** that you walkthrough this playground before the clas
 
 This playground consist of the following parts:
 
-- Object Oriented Programming (OOP) with C#
-  - Interfaces
-- Nuget
-- Functional programming with C#
-  - Lambda expressions
+- Object Oriented Programming (OOP) and C#
+  - Programming concepts in OOP
+    - Encapsulation
+    - Inheritance
+    - Polymorphism
+    - Abstraction
+  - OOP Elements in C#
+    - Class
+    - Object
+    - Abstract Class
+    - Properties
+  - Design principles
+  - Object oriented thinking
+- Interfaces
+- Lambda expressions
 - Reflection
 - Attributes in C#
-- LINQ
-  - Repository pattern
 - Fluent API
   - Builder pattern
 
 Each part will consist of links to learning material, quizzes on the learning material and code examples
-
-For the playground is there even a few exercises
