@@ -12,7 +12,7 @@ You can among other use reflection to:
 
 ## Example on reflection
 
-```csharp runable
+```C# runnable
 void Main()
 {
 	int i = 42;
@@ -30,7 +30,7 @@ https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/dynamic
 
 late binding
 
-```csharp runnable
+```C# runnable
 class Program { 
   
     // Main Method 
