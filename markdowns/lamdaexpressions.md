@@ -92,7 +92,7 @@ As written previously is [lambda expressions](https://docs.microsoft.com/en-us/d
 * Lambda expressions must return a value
 * The result of a lambda expression is Func<inputs, output> 
 
-The `=>` operator is called the "lambda operator", and is used when defining the method.
+The `=>` operator is called the "lambda operator", and is used when defining the expression.
 
 ### Example
 
@@ -168,6 +168,76 @@ class ExecuteAbstraction{
 
 ```
 
+The defintion of the Lambda expressions in the main method can compressed a bit to make the code easier to read:
+```csharp
+void Main()
+{
+	var d = new Dog();
+	Console.WriteLine($"{d.Specie} has {d.NumberOfLegs} legs");
+	d.MakeASound(sound => { return $"The dog goes: {sound}"; });
 
+	var h = new Human();
+	Console.WriteLine($"{h.Specie} has {h.NumberOfLegs} legs");
+	h.MakeASound(sound => {return $"The human goes: {sound}";});
+}
+```
+## Lambda expression with mulitple parameters
+
+It's possible to define lambda expressions with mulitple input parameters.
+
+```C# runnable
+using System;
+
+public abstract class Mammal
+{
+	private int numberOfLegs = 0;
+	private string specie = string.Empty;
+	private string sound = string.Empty;
+
+	public Mammal(string specie, int numberOfLegs, string sound)
+	{
+		this.numberOfLegs = numberOfLegs;
+		this.specie = specie;
+		this.sound = sound;
+	}
+
+	public void DescribeMammal(Func<string, int, string> describeMammal)
+	{
+		Console.WriteLine(describeMammal(specie, numberOfLegs));
+	}
+
+	public void MakeASound(Func<string, string> makeASound)
+	{
+		Console.WriteLine(makeASound(sound));
+	}
+}
+
+public class Dog : Mammal
+{
+	public Dog() : base("Dogs", 4, "Woof")
+	{
+	}
+}
+
+public class Human : Mammal
+{
+	public Human() : base("Humans", 2, "How YOU Doin’?")
+	{
+	}
+}
+
+class ExecuteAbstraction{
+	static void Main(string[] args) {
+        var d = new Dog();
+        d.DescribeMammal((specie,numberOfLegs) => {return $"{specie} has {numberOfLegs} legs"; });
+        d.MakeASound(sound => { return $"The dog goes: {sound}"; });
+
+        var h = new Human();
+        h.DescribeMammal((specie,numberOfLegs) => {return $"Those with {numberOfLegs} could be {specie}"; });
+        h.MakeASound(sound => {return $"The human goes: {sound}";});
+   }
+}
+
+```
 
 
