@@ -14,9 +14,10 @@ Example of reading an attribute using reflection:
 ```C# runnable
 using System;
 using System.Reflection;
+using System.ComponentModel;
 
 public class Program{
-    void Main()
+    static void Main()
     {
         Test t = new Test();
         PropertyInfo info = t.GetType().GetProperty("MyProperty");
@@ -48,6 +49,8 @@ It's possible to define your own attributes. This done by creating a class which
 ```C# runnable
 using System;
 using System.Reflection;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 class Program{
     static void Main()
