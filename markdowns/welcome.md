@@ -1,6 +1,6 @@
 # Welcome to C# refresh!
 
-This playground is the first of fourteen parts of the course "Dataåtkomster i .NET" (Data access using .NET).
+This playground is the first of fourteen parts of the course "Dataåtkomster i .NET" (Data access using .NET) at Teknikhögskolan in Gothenburg, Sweden. The playground requires a intermediate knowledge to .NET and C#.
 
 This the goal of this first part is to refresh different parts of C# and .NET, with a special focus on those technologies which we are going to use and extend during this course.
 
