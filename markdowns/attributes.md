@@ -19,10 +19,9 @@ using System.ComponentModel;
 public class Program{
     static void Main()
     {
-        Test t = new Test();
-        PropertyInfo info = t.GetType().GetProperty("MyProperty");
-        var testAttribute = (DescriptionAttribute)info.GetCustomAttribute(typeof(DescriptionAttribute));
-        Console.WriteLine(testAttribute.Description);
+        var propertyInfo = typeof(Test).GetProperty("MyProperty");
+        var testDescriptionAttribute = (DescriptionAttribute)propertyInfo.GetCustomAttribute(typeof(DescriptionAttribute));
+        Console.WriteLine(testDescriptionAttribute.Description);
     }
 }
 
