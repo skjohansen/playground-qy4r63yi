@@ -221,7 +221,7 @@ public class Dog : Mammal
 
 public class Human : Mammal
 {
-	public Human() : base("Humans", 2, "How YOU Doin\’?")
+	public Human() : base("Humans", 2, "How YOU Doin’?")
 	{
 	}
 }
@@ -234,7 +234,7 @@ class ExecuteAbstraction{
 
         var h = new Human();
         h.DescribeMammal((specie,numberOfLegs) => {return $"Those with {numberOfLegs} legs could be {specie.ToLower()}"; });
-        h.MakeASound(sound => {return $"The human some times says: {sound}";});
+        h.MakeASound(sound => {return $"The humans some times says: {sound}";});
    }
 }
 
