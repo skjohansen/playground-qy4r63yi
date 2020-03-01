@@ -30,6 +30,7 @@ public class Test
 	[Description("This is a description of my property")]
 	public string MyProperty { get; set;}
 }
+
 ```
 
 .NET comes with a range of build in attributes, among these are:
@@ -45,6 +46,9 @@ public class Test
 It's possible to define your own attributes. This done by creating a class which inherits from [Attribute](https://docs.microsoft.com/en-us/dotnet/api/system.attribute?view=netcore-3.1),
 
 ```C# runnable
+using System;
+using System.Reflection;
+
 class Program{
     static void Main()
     {
@@ -60,7 +64,7 @@ class Program{
             if (attr is Taxonomy)
             {
                 Taxonomy t = (Taxonomy)attr;
-                System.Console.WriteLine(t.ToString());
+                System.Console.WriteLine(t);
             }
             else
             {
