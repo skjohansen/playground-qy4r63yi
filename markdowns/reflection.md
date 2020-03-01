@@ -12,7 +12,7 @@ You can among other use reflection to:
 
 ## Example on reflection
 
-```csharp runnable
+```csharp runable
 void Main()
 {
 	int i = 42;
