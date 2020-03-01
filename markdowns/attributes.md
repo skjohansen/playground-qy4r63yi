@@ -11,7 +11,7 @@ Using reflection is it possible to retrieve the attributes.  We are especially g
 
 Example of reading an attribute using reflection:
 
-```c# runnable
+```C# runnable
 using System;
 using System.Reflection;
 
