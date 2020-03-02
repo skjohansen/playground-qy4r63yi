@@ -1,12 +1,12 @@
 # Fluent API
 
-A fluent API is a sequence of chained function calls, often arranged in a way that reads like an English sentence, then that’s a fluent API:
+A fluent API is a sequence of chained function calls, often arranged in a way that reads like an English sentence:
 
 ```C#
 someObject.ShouldNotifyFor(x => x.FirstName).And(x => x.FullName).When(x => x.FirstName = "Floyd"); 
 ```
 
-Fluent API is a design pattern. The pattern was first described by Martin Fowler in his article on [Fluent Interface](https://martinfowler.com/bliki/FluentInterface.html), and the main idea is to make code which is readable to ordinary written prose. 
+Fluent API is a design pattern. The pattern was initially described by Martin Fowler in his article on [Fluent Interface](https://martinfowler.com/bliki/FluentInterface.html), and the main idea is to make code which is readable to ordinary written prose. 
 
 The code build on the design [Builder design pattern](https://refactoring.guru/design-patterns/builder). And as the reader notice in the code example above make the code an extensive use of lambda expressions, which is quite normal for Fluent API .
 
@@ -21,24 +21,27 @@ There is a lot of existing fluent APIs for C#, some of them are:
 
 ## Your own fluent API
 
-As applications becomes more complex, can the development of a custom fluent API be a good investment as fluent APIs are creating a domain-specific language. Which makes is possible to describe complex business logic in few lines of fluent API (if of course it's implemented in the API).
+As applications becomes more complex, can the development of a custom fluent API be a good investment, as fluent APIs gives the possibility to create a domain-specific language. Which makes is possible to describe complex business logic in few lines of fluent API (if of course it's implemented in the API).
 
-As with all other APIs designing fluent APIs is not an easy task, as you will need to find a balance locking in the developer using the API or giving to free access. The problem is that it's almost impossible to foresee how the users of your API is planning to use the API.
+As with all other APIs, designing fluent APIs is not an trivial task, as you will need to find a balance locking in the developer using the API or giving open access. The problem is that it's almost impossible to foresee how the users of your API is planning to use the API.
 
-When designing you fluent API can it be a good trick to try to tell all the "stories" that you can think the users are going to implement with the API. This can be done be creating a tree of actions which you are imaging the user to perform, and in that why document the path you expect or limit the user to follow.
+When designing you fluent API can it be a good trick to try to tell all the "stories" that you can think the users are going to implement with the API. This can be done be creating a tree of actions which you are imaging the user to perform, and in that way document the path you expect or limit the user to follow.
 
 A path consist of fluent methods, and these could be categorized into either starting, context or exit methods:
 
-- Starting methods: Initializes the execution of a path
+- Start methods: Initializes the execution of a path
   - eg: StartX(), QueryX(), UpdateX(), SelectX()
-- Context methods: Specify the information within a path
+- Context methods: Specify the information within a path (between start and end)
   - eg: WithX(), WithoutX(), UsingX(), AddX(), RemoveX()
-- Exit methods: Ends execution of a path
+- Exit methods: Ends execution of a path, initialized by a start method, defines what should be the output of the path
   - eg: ApplyX(), AttachX(), ToX(), And(), Or()
 
 ## Example of custom fluent API
 
 ```C# runnable
+using System;
+using System.Collections.Generic;
+
 class Program{
     static void Main()
     {
@@ -49,7 +52,6 @@ class Program{
         .BringToLife();
     }
 }
-
 
 class Mammal : IMammal
 {
