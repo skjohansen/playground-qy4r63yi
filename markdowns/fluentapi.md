@@ -3,7 +3,7 @@
 A fluent API is a sequence of chained function calls, often arranged in a way that reads like an English sentence:
 
 ```C#
-someObject.ShouldNotifyFor(x => x.FirstName).And(x => x.FullName).When(x => x.FirstName = "Floyd"); 
+someObject.ShouldNotifyFor(x => x.FirstName).And(x => x.FullName).When(x => x.FirstName = "Floyd").ToResult(); 
 ```
 
 Fluent API is a design pattern. The pattern was initially described by Martin Fowler in his article on [Fluent Interface](https://martinfowler.com/bliki/FluentInterface.html), and the main idea is to make code which is readable to ordinary written prose. 
