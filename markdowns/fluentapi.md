@@ -123,7 +123,9 @@ For instance in LINQ:
 var personsAbove18 = myPersonContext.Where(p => p.Age => 18).ToList();
 ```
 
-Example
+### Example of fluent with lambda
+
+Try to change the order of the Has and WithArms methods in the Main-method
 
 ```C# runnable
 using System;
