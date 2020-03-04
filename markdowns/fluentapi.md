@@ -133,7 +133,7 @@ class Program{
     static void Main()
     {
         new Mammal("Human")
-        	.Has(b => b.Name="Arms")
+        	.Has(b => b.Name == "Arms") //the code after the lambda operator is the anonymous method which is going to be invoked by the has-method
             .WithArms(2)
         .BringToLife();
     }
@@ -158,14 +158,17 @@ class Mammal : IMammal
 		return this;
 	}
 	
-	public IMammal Has(Func<BodyPart, bool> bodyPartQuery)
+	public IMammal Has(Func<BodyPart, bool> bodyPartCheck)
 	{
         foreach(var bp in BodyParts){
-            if(bodyPartQuery.Invoke(bp) == true){
-                throw new Exception($"{bp.Name} is already in place")
+            // loop all bodyparts and invoke the check for each
+            // the check takes an BodyPart as input and outputs a bool
+            if(bodyPartCheck.Invoke(bp) == true){
+                throw new Exception($"{bp.Name} is already in place");
             }
         }
         
+        // no matching bodyparts was found
         return this;
 	}
 	
@@ -181,7 +184,6 @@ class Mammal : IMammal
 
 interface IMammal
 {
-	IMammal WithBrain();
 	IMammal Has(Func<BodyPart, bool> bodyPartQuery);
 	IMammal WithArms(int number);
 	void BringToLife();
