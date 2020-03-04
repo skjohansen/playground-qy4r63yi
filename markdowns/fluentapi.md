@@ -114,6 +114,84 @@ class BodyPart
 ```
 
 
+## Fluent API and lambda expressions
+
+Fluent APIs are often use in combination with Lambda expressions. 
+
+For instance in LINQ:
+```C#
+var personsAbove18 = myPersonContext.Where(p => p.Age => 18).ToList();
+```
+
+Example
+
+```C# runnable
+using System;
+using System.Collections.Generic;
+
+class Program{
+    static void Main()
+    {
+        new Mammal("Human")
+        	.Has(b => b.Name="Arms")
+            .WithArms(2)
+        .BringToLife();
+    }
+}
+
+class Mammal : IMammal
+{
+	private IEnumerable<BodyPart> BodyParts {get; set;}
+	private string Name {get; set;}
+
+	public Mammal(string name)
+	{
+		// Start method
+		BodyParts = new List<BodyPart>();
+		Name = name;
+	}
+
+	public IMammal WithArms(int number)
+	{
+		// context method
+		((List<BodyPart>)BodyParts).Add(new BodyPart() { Name = "Arms", Amount = 2 });
+		return this;
+	}
+	
+	public IMammal Has(Func<BodyPart, bool> bodyPartQuery)
+	{
+        foreach(var bp in BodyParts){
+            if(bodyPartQuery.Invoke(bp) == true){
+                throw new Exception($"{bp.Name} is already in place")
+            }
+        }
+        
+        return this;
+	}
+	
+	public void BringToLife() 
+	{
+		// Exit method
+		foreach (var bp in BodyParts)
+		{
+			Console.WriteLine($"{Name} has {bp.Amount} {bp.Name}");
+		}	
+	}
+}
+
+interface IMammal
+{
+	IMammal WithBrain();
+	IMammal Has(Func<BodyPart, bool> bodyPartQuery);
+	IMammal WithArms(int number);
+	void BringToLife();
+}
+
+class BodyPart
+{
+	public int Amount {get; set;}
+	public string Name {get; set;}
+}
 
 
-
+```
