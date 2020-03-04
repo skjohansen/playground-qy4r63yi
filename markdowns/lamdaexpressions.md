@@ -168,7 +168,7 @@ class ExecuteAbstraction{
 
 ```
 
-The defintion of the Lambda expressions in the main method can compressed a bit to make the code easier to read:
+The definition of the Lambda expressions in the main method can compressed a bit to make the code easier to read:
 ```csharp
 void Main()
 {
@@ -181,7 +181,7 @@ void Main()
 	h.MakeASound(sound => {return $"The human goes: {sound}";});
 }
 ```
-## Lambda expression with mulitple parameters
+## Lambda expression with multiple parameters
 
 It's possible to define lambda expressions with mulitple input parameters.
 
@@ -239,5 +239,3 @@ class ExecuteAbstraction{
 }
 
 ```
-
-
