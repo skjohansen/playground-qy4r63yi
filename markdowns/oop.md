@@ -391,5 +391,5 @@ There is a lot of tools to support the development of OOP applications, one of t
 
 In this course are we especially going to use [Use case diagrams](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/) which is good to identify the users of the system and the functionality the need.
 
-Besides this are we also going to use the technique CRC cards, which can be used for object oriented thinking is the : [Introduction to CRC Cards](http://lore.ua.ac.be/Teaching/SE3BAC/CRCIntro.pdf)
+A way to train OOP-thinking is through a techniuqe called "CRC cards": [Class Responsibility Collaborator (CRC) Models: An Agile Introduction](http://agilemodeling.com/artifacts/crcModel.htm), it worth noting that this technique is rarly used in a worklife enviroment.
 
