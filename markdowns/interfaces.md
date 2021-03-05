@@ -20,7 +20,7 @@ So when naming an interface should the name be prefixed with an *I*. Eg. an inte
 
 In this example does the interface IMammal tell us that all mammals have two properties: number of legs and the specie of the mammal, and that the mammal have the behavior of making a sound.
 
-The example is quite simplified, but a key difference between a dog and a human (in this example) is the ability to speak, so the implementation of human and dog differs a bit, but they still implement to the same contract (interface). This contract is used by the DisplayMammal method to display the information on the mammal.
+The example is quite simplified, but a key difference between a dog and a human (in this example) is the ability to make complex sounds (speak), so the implementation of human and dog differs a bit, but they still implement to the same contract (interface). This contract is used by the DisplayMammal method to display the information on the mammal.
 
 Question to think about: What could we do if the mammal does not have any legs? Like a whale
 
@@ -34,7 +34,7 @@ public interface IMammal
 	void MakeASound();
 }
 
-// Dog implements the interface IMammel
+// Dog implements the interface IMammal, to make sure the dog have same behaviours and attributes as other mammals 
 public class Dog : IMammal
 {
 	private int numberOfLegs = 4;
@@ -50,7 +50,7 @@ public class Dog : IMammal
 	}
 }
 
-// Human implements the interface IMammel
+// Human implements the interface IMammal, to make sure the dog have same behaviours and attributes as other mammals
 public class Human : IMammal
 {
 	private int numberOfLegs = 2;
