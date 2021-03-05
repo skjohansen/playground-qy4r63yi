@@ -4,13 +4,13 @@ To some extend interfaces reminds a lot of an abstract class. But there is some 
 
 1. An interface can't contain any logic (not quite true as C# 8.0 introduces [default implementations](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/default-interface-methods))
 2. A class can implement several interfaces, but only on inherit one class
-3. An interface says nothing about the internal state of a class
+3. An interface says nothing about the internal state of a class, only the behaviour and attributes of the class (those which is defined in the interface)
 
 Advantage of interface:
-* It is used to achieve loose coupling.
-* It is used to achieve total abstraction.
-* To achieve component-based programming
-* Interfaces intertroduces a plug-and-play like architecture into applications.
+* A way to achive loose coupling in our code
+* Introduces abstraction to pur code
+* Make our classes act more like components
+* Introduces a plug-and-play like architecture into our application
 
 An interfaces should be seen as a contract which define the public properties, methods, and events, which the class or struct must implement.
 
