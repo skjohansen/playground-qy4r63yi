@@ -6,6 +6,12 @@ To some extend interfaces reminds a lot of an abstract class. But there is some 
 2. A class can implement several interfaces, but only on inherit one class
 3. An interface says nothing about the internal state of a class
 
+Advantage of interface:
+* It is used to achieve loose coupling.
+* It is used to achieve total abstraction.
+* To achieve component-based programming
+* Interfaces intertroduces a plug-and-play like architecture into applications.
+
 An interfaces should be seen as a contract which define the public properties, methods, and events, which the class or struct must implement.
 
 An object never can be an instance of an interface, but an object can be an instance of a class implementing one or more interfaces.
