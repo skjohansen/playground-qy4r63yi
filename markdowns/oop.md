@@ -1,6 +1,6 @@
 # Object Oriented Programming and C#
 
-C# is a [multi paradigm](https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages) programming language, which is used in the Microsoft .NET framework, currently (March 2020) in [version 8.0](https://docs.microsoft.com/da-dk/dotnet/csharp/language-reference/proposals/csharp-8.0/nullable-reference-types).
+C# is a [multi paradigm](https://en.wikipedia.org/wiki/Comparison_of_multi-paradigm_programming_languages) programming language, which is used in the Microsoft .NET framework, currently (March 2021) the latest version is [version 9.0](https://stackoverflow.com/questions/247621/what-are-the-correct-version-numbers-for-c).
 
 [Object Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) is a [programming paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) which is highly used in C#.
 
