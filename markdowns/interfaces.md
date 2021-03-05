@@ -2,9 +2,9 @@
 
 To some extend interfaces reminds a lot of an abstract class. But there is some big differences.
 
-1. An interface can't contain any logic
-2. A class can implement several interfaces
-3. An abstract class is a class which can't be instantiated.
+1. An interface can't contain any logic (not quite true as C# 8.0 introduces [default implementations](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/default-interface-methods))
+2. A class can implement several interfaces, but only on inherit one class
+3. An interface says nothing about the internal state of a class
 
 An interfaces should be seen as a contract which define the public properties, methods, and events, which the class or struct must implement.
 
@@ -18,9 +18,9 @@ So when naming an interface should the name be prefixed with an *I*. Eg. an inte
 
 ## Interface example
 
-In this example is does the interface Mammal tell us that all mammal have two properties of number of legs and the specie of the mammal, and that the mammal have the behavior of making a sound.
+In this example does the interface IMammal tell us that all mammals have two properties: number of legs and the specie of the mammal, and that the mammal have the behavior of making a sound.
 
-The example is quite simplified, but a key difference between a dog and a human is the ability to speak, so the implementation of human and dog differs a bit, but they still implement to the same contract (interface). This contract is used by the DisplayMammal method to display the information on the mammal.
+The example is quite simplified, but a key difference between a dog and a human (in this example) is the ability to speak, so the implementation of human and dog differs a bit, but they still implement to the same contract (interface). This contract is used by the DisplayMammal method to display the information on the mammal.
 
 Question to think about: What could we do if the mammal does not have any legs? Like a whale
 
@@ -34,7 +34,7 @@ public interface IMammal
 	void MakeASound();
 }
 
-
+// Dog implements the interface IMammel
 public class Dog : IMammal
 {
 	private int numberOfLegs = 4;
@@ -50,6 +50,7 @@ public class Dog : IMammal
 	}
 }
 
+// Human implements the interface IMammel
 public class Human : IMammal
 {
 	private int numberOfLegs = 2;
@@ -71,17 +72,17 @@ public class Human : IMammal
 	}
 }
 
-class ExecuteAbstraction{
-    static void DisplayMammal(IMammal mammal)
-    {
-        Console.WriteLine($"{mammal.Specie} has {mammal.NumberOfLegs} legs");
-        Console.Write($"The {mammal.Specie} say: ");
-        mammal.MakeASound();
-    }
-    
-	static void Main(string[] args) {
+class ExecuteInterfaceExample{  
+   static void Main(string[] args) {
         DisplayMammal(new Dog());
         DisplayMammal(new Human("The Ultimate Answer to Life, The Universe and Everything is...42!"));
+   }
+   
+   static void DisplayMammal(IMammal mammal)
+   {
+       Console.WriteLine($"{mammal.Specie} has {mammal.NumberOfLegs} legs");
+       Console.Write($"The {mammal.Specie} say: ");
+       mammal.MakeASound();
    }
 }
 
